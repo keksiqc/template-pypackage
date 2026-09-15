@@ -31,11 +31,14 @@ jobs:
         run: uv tool install cookiecutter
 
       - name: Render project
-        run: cookiecutter . --no-input --output-dir "$RUNNER_TEMP"
+        run: |
+          render_dir="$RUNNER_TEMP/cookiecutter-output"
+          mkdir "$render_dir"
+          cookiecutter . --no-input --output-dir "$render_dir"
 
       - name: Check generated project
         run: |
-          generated_dir="$(find "$RUNNER_TEMP" -mindepth 1 -maxdepth 1 -type d -print -quit)"
+          generated_dir="$(find "$RUNNER_TEMP/cookiecutter-output" -mindepth 1 -maxdepth 1 -type d -print -quit)"
           test -n "$generated_dir"
           cd "$generated_dir"
           uv sync
