@@ -3,7 +3,7 @@ name = "template-pypackage"
 version = "0.1.0"
 description = "A template python package."
 readme = "README.md"
-requires-python = ">=3.14"
+requires-python = ">=3.12"
 authors = [{ name = "Keksi", email = "git@keksi.dev" }]
 dependencies = []
 
