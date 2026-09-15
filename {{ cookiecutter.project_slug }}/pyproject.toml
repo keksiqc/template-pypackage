@@ -1,14 +1,14 @@
 [project]
-name = "template-pypackage"
+name = {{ cookiecutter.project_slug | tojson }}
 version = "0.1.0"
-description = "A template python package."
+description = {{ cookiecutter.project_description | tojson }}
 readme = "README.md"
 requires-python = ">=3.12"
-authors = [{ name = "Keksi", email = "git@keksi.dev" }]
+authors = [{ name = {{ cookiecutter.author_name | tojson }}, email = {{ cookiecutter.author_email | tojson }} }]
 dependencies = []
 
 [project.scripts]
-template-pypackage = "template_pypackage.cli:main"
+{{ cookiecutter.project_slug | tojson }} = "{{ cookiecutter.package_module }}.cli:main"
 
 [dependency-groups]
 dev = [

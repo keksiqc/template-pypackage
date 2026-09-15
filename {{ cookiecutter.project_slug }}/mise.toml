@@ -11,14 +11,14 @@ enter = [
 ]
 
 [tasks.fix]
-description = "Apply formating and lint fixes"
+description = "Apply formatting and lint fixes"
 run = [
   "ruff format",
   "ruff check --fix",
 ]
 
 [tasks.check]
-description = "Verify formating, linting, type checking, and tests"
+description = "Verify formatting, linting, type checking, and tests"
 run = [
   "ruff format --check",
   "ruff check",

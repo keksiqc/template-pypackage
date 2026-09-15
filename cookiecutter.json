@@ -1,0 +1,15 @@
+{
+  "project_name": "My Python Package",
+  "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '_') }}",
+  "package_module": "{{ cookiecutter.project_slug.replace('-', '_') }}",
+  "project_description": "A Python package.",
+  "author_name": "Keksi",
+  "author_email": "hello@keksi.dev",
+  "github_owner": "keksiqc",
+  "_copy_without_render": [
+    ".github/workflows/ci.yaml",
+    ".github/workflows/codeql.yaml",
+    ".github/workflows/docs.yaml",
+    ".github/workflows/zizmor.yaml"
+  ]
+}

@@ -1,4 +1,4 @@
-"""Template Python package."""
+"""Python package."""
 
 from __future__ import annotations
 
