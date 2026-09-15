@@ -53,7 +53,7 @@ jobs:
         run: uv run ty check .
 
   test:
-    name: Test (Python ${{ "{{" }} matrix.python-version {{ "}}" }})
+    name: Test (Python ${{ matrix.python-version }})
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -69,12 +69,12 @@ jobs:
       - uses: astral-sh/setup-uv@bec219d24cd3e171d82865faccec33120bb574f4 # v10.1.0
 
       - name: Run tests with coverage
-        run: uv run --python=${{ "{{" }} matrix.python-version {{ "}}" }} coverage run -m pytest
+        run: uv run --python=${{ matrix.python-version }} coverage run -m pytest
 
       - name: Upload coverage data
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: coverage-${{ "{{" }} matrix.python-version {{ "}}" }}
+          name: coverage-${{ matrix.python-version }}
           path: .coverage.*
           include-hidden-files: true
 
@@ -116,4 +116,4 @@ jobs:
       - name: Check job results
         uses: re-actors/alls-green@b5b5b37504aa4183270bd3d855c52a67f212be35 # v1.3.0
         with:
-          jobs: ${{ "{{" }} toJSON(needs) {{ "}}" }}
+          jobs: ${{ toJSON(needs) }}

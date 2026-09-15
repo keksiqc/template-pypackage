@@ -6,7 +6,7 @@ on:
   pull_request:
     branches: [main]
   schedule:
-    - cron: '0 6 * * 1'
+    - cron: "0 6 * * 1"
 
 permissions: {}
 
@@ -27,8 +27,8 @@ jobs:
       - name: Initialize CodeQL
         uses: github/codeql-action/init@b96794f015dfd88f77b49b1c93e0fa7110f94c63 # v4.38.0
         with:
-          languages: python  # Add c-cpp, go, java-kotlin, or swift if needed
-          build-mode: none   # Switch to autobuild for compiled languages
+          languages: python # Add c-cpp, go, java-kotlin, or swift if needed
+          build-mode: none # Switch to autobuild for compiled languages
           queries: security-extended
 
       - name: Perform CodeQL Analysis
