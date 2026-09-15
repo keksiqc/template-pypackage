@@ -10,6 +10,7 @@
     ".github/workflows/ci.yaml",
     ".github/workflows/codeql.yaml",
     ".github/workflows/docs.yaml",
+    ".github/workflows/release.yaml",
     ".github/workflows/zizmor.yaml"
   ]
 }
