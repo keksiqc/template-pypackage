@@ -29,5 +29,11 @@ cd my_python_package
 uv sync
 ```
 
+To enable the documentation workflow, set the repository variable:
+
+```sh
+gh variable set DOCS_DEPLOYMENT_ENABLED --body true
+```
+
 The files used to render a project live under
 `{{ cookiecutter.project_slug }}/`.
