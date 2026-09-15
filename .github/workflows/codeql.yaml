@@ -13,7 +13,7 @@ permissions: {}
 jobs:
   analyze:
     name: Analyze
-    if: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+    if: ${{ github.event.repository.private == false || vars.CODE_SECURITY_ENABLED == 'true' }}
     runs-on: ubuntu-latest
     permissions:
       actions: read
