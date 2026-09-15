@@ -1,0 +1,60 @@
+[project]
+name = "template-pypackage"
+version = "0.1.0"
+description = "A template python package."
+readme = "README.md"
+requires-python = ">=3.14"
+authors = [{ name = "Keksi", email = "git@keksi.dev" }]
+dependencies = []
+
+[project.scripts]
+template-pypackage = "template_pypackage:main"
+
+[dependency-groups]
+dev = [
+  { include-group = "lint" },
+  { include-group = "test" },
+  { include-group = "tools" },
+]
+docs = [
+  "zensical",
+]
+lint = [
+  "ruff",
+  "ty",
+]
+test = [
+  "coverage",
+  "pytest",
+]
+tools = [
+  "commitizen",
+  "prek",
+]
+
+[build-system]
+requires = ["uv_build>=0.12.14,<0.13.0"]
+build-backend = "uv_build"
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+tag_format = "$version"
+version_scheme = "pep440"
+version_provider = "uv"
+update_changelog_on_bump = true
+major_version_zero = true
+
+[tool.pytest.ini_options]
+cache_dir = ".cache/pytest"
+testpaths = "tests"
+
+[tool.ruff]
+cache-dir = ".cache/ruff"
+line-length = 120
+
+[tool.ruff.lint.isort]
+required-imports = ["from __future__ import annotations"]
+lines-after-imports = 2
+
+[tool.tombi.files]
+exclude = ["uv.lock"]

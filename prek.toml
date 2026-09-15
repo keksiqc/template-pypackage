@@ -1,0 +1,60 @@
+default_install_hook_types = ["pre-commit", "pre-push", "commit-msg"]
+default_stages = ["pre-commit"]
+
+[update]
+freeze = true
+
+[[repos]]
+repo = "builtin"
+hooks = [
+  { id = "check-added-large-files" },
+  { id = "check-vcs-permalinks" },
+  { id = "trailing-whitespace" },
+  { id = "end-of-file-fixer" },
+  { id = "check-merge-conflict" },
+  { id = "check-case-conflict" },
+  { id = "mixed-line-ending", args = ["--fix=lf"] },
+  { id = "check-symlinks" },
+  { id = "detect-private-key" },
+  { id = "check-json" },
+  { id = "check-yaml" },
+  { id = "check-toml" },
+]
+
+[[repos]]
+repo = "https://github.com/commitizen-tools/commitizen"
+rev = "d910b66e2686a3ef6c3f438dec0f63ba3cf8d7ee"  # frozen: v4.18.0
+hooks = [
+  { id = "commitizen" },
+  { id = "commitizen-branch" },
+]
+
+[[repos]]
+repo = "https://github.com/astral-sh/uv-pre-commit"
+rev = "7720020191168f707a43279c65b6bf9cdf7ed04e"  # frozen: 0.12.10
+hooks = [
+  { id = "uv-lock" },
+]
+
+[[repos]]
+repo = "https://github.com/astral-sh/ty-pre-commit"
+rev = "743d21e292f7a36ed70cc2318aa3c8711b1e0437"  # frozen: v0.0.78
+hooks = [
+  { id = "ty" },
+]
+
+[[repos]]
+repo = "https://github.com/astral-sh/ruff-pre-commit"
+rev = "321478e58f4938179c6b86e4ddfa923d1547a49b"  # frozen: v0.16.6
+hooks = [
+  { id = "ruff-format" },
+  { id = "ruff-check", args = ["--fix"] },
+]
+
+[[repos]]
+repo = "https://github.com/tombi-toml/tombi-pre-commit"
+rev = "2ded3bc1d8379b49bfe7415ecea01f52a254c67d"  # frozen: v1.5.2
+hooks = [
+  { id = "tombi-format" },
+  { id = "tombi-lint" },
+]
