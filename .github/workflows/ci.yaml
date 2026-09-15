@@ -37,7 +37,7 @@ jobs:
       - name: Ruff lint
         run: uv run ruff check .
 
-  type-check:
+  typecheck:
     name: Type check
     runs-on: ubuntu-latest
     permissions:
@@ -102,15 +102,15 @@ jobs:
 
       - name: Coverage report
         run: |
-          echo '## Coverage Report' >> $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY
-          uv run coverage report | tee -a $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY
+          echo '## Coverage Report' >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          uv run coverage report | tee -a "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
 
   all-checks-pass:
     name: All checks pass
     if: always()
-    needs: [lint, type-check, test, coverage]
+    needs: [lint, typecheck, test, coverage]
     runs-on: ubuntu-latest
     steps:
       - name: Check job results
