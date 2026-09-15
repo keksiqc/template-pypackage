@@ -8,7 +8,7 @@ authors = [{ name = "Keksi", email = "git@keksi.dev" }]
 dependencies = []
 
 [project.scripts]
-template-pypackage = "template_pypackage:main"
+template-pypackage = "template_pypackage.cli:main"
 
 [dependency-groups]
 dev = [
@@ -43,6 +43,12 @@ version_scheme = "pep440"
 version_provider = "uv"
 update_changelog_on_bump = true
 major_version_zero = true
+
+[tool.coverage.run]
+branch = true
+omit = ["*/__main__.py"]
+parallel = true
+source = ["src"]
 
 [tool.pytest.ini_options]
 cache_dir = ".cache/pytest"
